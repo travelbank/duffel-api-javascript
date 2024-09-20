@@ -1,6 +1,6 @@
 {
   "name": "@travelbank/duffel-api",
-  "version": "2.01.0",
+  "version": "2.0.1",
   "description": "Javascript client library for the Duffel API for Node 12",
   "main": "dist/index.cjs",
   "module": "dist/index.es.cjs",
