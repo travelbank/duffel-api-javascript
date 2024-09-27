@@ -215,6 +215,7 @@ export const mockOrder: Order = {
   passengers: [
     {
       type: 'adult',
+      email: 'traveler@email.com',
       title: 'mrs',
       infant_passenger_id: 'pas_00009hj8USM8Ncg32aTGHL',
       id: 'pas_00009hj8USM7Ncg31cBCLL',
@@ -407,6 +408,7 @@ export const mockOnHoldOrders: Order[] = [
     passengers: [
       {
         type: 'adult',
+        email: 'traveler@email.com',
         title: 'mr',
         infant_passenger_id: null,
         id: 'pas_0000A6GinR7kevnCVS69dy',
@@ -573,6 +575,7 @@ export const mockOnHoldOrders: Order[] = [
     passengers: [
       {
         type: 'adult',
+        email: 'traveler@email.com',
         title: 'mr',
         infant_passenger_id: null,
         id: 'pas_0000A6GiSkqfID7qtKsE2U',
