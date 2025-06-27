@@ -1,4 +1,6 @@
 import fetch, { Headers } from 'node-fetch'
+import { HttpsProxyAgent } from 'https-proxy-agent'
+
 import { URL, URLSearchParams } from 'url'
 import {
   DuffelResponse,
@@ -6,7 +8,6 @@ import {
   ApiResponseMeta,
   ApiResponseError,
 } from './types'
-
 export interface Config {
   token: string
   basePath?: string
@@ -119,12 +120,18 @@ export class Client {
       if (params) console.info('Query Parameters: ', params)
     }
 
-    const response = await fetch(fullPath.href, {
+    const options: any = {
       method,
       headers,
       body,
       compress,
-    })
+    }
+    if (process.env.HTTPS_PROXY) {
+      const proxyAgent = new HttpsProxyAgent(process.env.HTTPS_PROXY)
+      options.agent = proxyAgent
+    }
+
+    const response = await fetch(fullPath.href, options)
 
     if (this.debug?.verbose && response.headers.get('x-request-id')) {
       console.info('Request ID: ', response.headers.get('x-request-id'))
